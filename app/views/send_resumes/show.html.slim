@@ -1,0 +1,10 @@
+p style="color: green" = notice
+
+== render @send_resume
+
+div
+  => link_to "Edit this send resume", edit_send_resume_path(@send_resume)
+  '|
+  =< link_to "Back to send resumes", send_resumes_path
+
+  = button_to "Destroy this send resume", @send_resume, method: :delete

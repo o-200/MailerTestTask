@@ -1,0 +1,96 @@
+doctype html
+html lang=I18n.locale
+  head
+    meta charset=Rails.application.config.encoding
+    = stylesheet_link_tag 'application_vanacy', media: 'all'
+  body.vacancy-boby
+    #main-wrap
+      section.wrap.holder style="margin-top: 30px; margin-bottom: 30px;"
+
+        .h1-title Отлик на вакансию «BackEnd RoR разработчик»
+        .b-appeal.vacancy-b-appeal
+          .b-appeal-img = image_tag("user_ico_vacancy")
+          .b-appeal-desc
+            .b-appeal--name Александр Абрамов
+            .b-appeal--text
+              p
+                ' Желаемая зп:
+                b 50 000 рублей
+              p
+                ' E-mail:
+                b = mail_to "omgout200@gmail.com"
+              p
+                ' Telegram:
+                b t.me/sonellyuwu (предпочтительно)
+              p
+                ' Slack:
+                b omgout.200@gmail.com
+        .h2-title.vacancy-title
+          ' Навыки
+          small (отметить нужное или дополнить)
+
+        = form_for "form_name", method: :get, url: "#", html: {class: "b-form", id: "b-form-3"} do |f|
+          .vacancy-checkbox
+            = f.collection_check_boxes :checkboxes, [OpenStruct.new(val: 'Ruby'), OpenStruct.new(val: 'RubyOnRails'), OpenStruct.new(val: 'MVC')], :val, :val, {}, {class: "f-field-check"}
+          .vacancy-checkbox
+            = f.collection_check_boxes :checkboxes, [OpenStruct.new(val: 'SQL'), OpenStruct.new(val: 'SQLite'), OpenStruct.new(val: 'Git')], :val, :val, {}, {class: "f-field-check"}
+          .vacancy-checkbox
+            = f.collection_check_boxes :checkboxes, [OpenStruct.new(val: 'Devise'), OpenStruct.new(val: 'Active admin'), OpenStruct.new(val: 'Active Model Serializer')], :val, :val, {}, {class: "f-field-check"}
+          .vacancy-checkbox
+            = f.collection_check_boxes :checkboxes, [OpenStruct.new(val: 'HTML5'), OpenStruct.new(val: 'CSS3'), OpenStruct.new(val: 'Bootstrap')], :val, :val, {}, {class: "f-field-check"}
+          .vacancy-checkbox
+            = f.collection_check_boxes :checkboxes, [OpenStruct.new(val: 'RubyMine'), OpenStruct.new(val: 'VS Code'), OpenStruct.new(val: 'Ruby/Rails styles')], :val, :val, {}, {class: "f-field-check"}
+
+          /div.b-checktree
+            ul.b-checktree-list
+              li.b-checktree--item
+                input#rcheckbox0.f-field-check.disable type="checkbox"
+                label for="rcheckbox0" Node 0
+              li.b-checktree--item
+                input#rcheckbox1.f-field-check.ffc-root type="checkbox"
+                label for="rcheckbox1" Node 1
+                ul.b-checktree-list
+                  li.b-checktree--item
+                    input#rcheckbox2.f-field-check.ffc-root type="checkbox"
+                    label for="rcheckbox2" Node 1.1
+                    ul.b-checktree-list
+                      li.b-checktree--item
+                        input#rcheckbox3.f-field-check type="checkbox"
+                        label for="rcheckbox3" Node 1.2
+        article.content
+          h2.vacancy-title Дополнительная информация
+          p Все, что вы хотите рассказать о себе (опыт работы с указанием организаций и периода, ссылки на примеры ваших работ, примеры кода, написанного вами, и которыми вы гордитесь, и так далее).
+          pre
+            code
+                .class ClassBootique
+                  attr_reader :items
+
+                  def initializers(items)
+                    @items = items
+                  end
+
+                  def out_of_stock
+                    @items.select { |n| n[:quantity_by_size].empty? }
+                  end
+
+                  def stock_for_items(name)
+                    @items.detect { |i| i[:name] == name }.fetch(:quantity_by_size)
+                  end
+
+                .end
+          p.code-hint Пример моего кода.
+
+          p Мои проекты вы можете посмотреть тут -
+
+          a<> href='https://github.com/o-200' Github
+
+          h2.vacancy-title Сопроводительное письмо:
+
+          p Здравствуйте!
+
+          p Очень заинтересовала вакансия "Backend Ruby on Rails разработчик".
+            Мне очень нравятся ваши работы (особенно Столбы).
+            Хотелось бы принять участие в разработке ваших будущих проектов.
+
+          p Месяца 3-4 занимался фрилансом. В основном решал мелкие задачи, работал с API-only приложениями
+          p Жду ответа в telegram или email

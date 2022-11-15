@@ -1,0 +1,11 @@
+p style="color: green" = notice
+
+h1 Send resumes
+
+#send_resumes
+  - @send_resumes.each do |send_resume|
+    == render send_resume
+    p
+      = link_to "Show this send resume", send_resume
+
+= link_to "New send resume", new_send_resume_path

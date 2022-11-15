@@ -1,0 +1,92 @@
+$html-font-size: 16px;
+$html-line-height: 22px;
+$font: 'PT Sans', Arial, sans-serif;
+$ftr-height: 64px;
+
+$clr-gray: #f6f6f6;
+$clr-gray-brd: #dadada;
+$clr-blue: #15c0f3;
+$clr-red: #ff0000;
+$clr-green: #008000;
+$clr-lght-green: #96b0ac;
+
+@mixin mediumscreen { @media (max-width: 1280px) { @content; } }
+@mixin bigscreen { @media (min-width: 1281px) { @content; } }
+
+
+// for adaptive image wrap
+@mixin img-wrap($w,$h){
+  display: inline-block;
+  width:$w;
+  height:$h;
+  line-height: $h - 2;
+  text-align: center;
+  overflow: hidden;
+  img{
+    max-width:100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
+    vertical-align: middle;
+  }
+}
+
+
+
+@mixin thin-inline-lnk($clr: #fff) {
+  @at-root {
+     a#{&},
+     a &,
+     & > a {
+       display: inline;
+       color: $clr;
+       text-decoration: none !important;
+       border-bottom: 1px solid rgba($clr, 0.60);
+       &:hover {
+         border-bottom: none;
+       }
+     }
+   }
+}
+
+@mixin thin-inline-lnk-contr($clr: #fff, $clr-brd: #fff) {
+  @at-root {
+     a#{&},
+     a &,
+     & > a {
+       display: inline;
+       color: $clr;
+       text-decoration: none !important;
+       border-bottom: none;
+       &:hover {
+         border-bottom: 1px solid $clr-brd;
+       }
+     }
+   }
+}
+
+/* to use rem on ie10 */
+@function calculateRemFS($size) {
+  $remSize: $size / $html-font-size;
+  @return $remSize * 1rem;
+}
+
+@function calculateRemLH($line-h) {
+  $remSize: $line-h / $html-line-height;
+  @return $remSize * 1rem;
+}
+
+@mixin font-rem-size($size) {
+  body.lt-ie-11 {
+    font-size: $size;
+  }
+  font-size: calculateRemFS($size);
+}
+
+@mixin font-rem($size,$line-h, $f-style, $f-param: '') {
+  body.lt-ie-11 & {
+    font: #{$f-param} $size#{"/"}$line-h $f-style;
+  }
+  font: #{$f-param} calculateRemFS($size)#{"/"}calculateRemFS($line-h) $f-style;
+}
+/* end to use rem on ie10 */

@@ -1,0 +1,18 @@
+= form_with(model: @send_resume) do |form|
+  - if @send_resume.errors.any?
+    div style="color: red"
+      h2 = "#{pluralize(@send_resume.errors.count, "error")} prohibited this send_resume from being saved:"
+      ul
+        - @send_resume.errors.each do |error|
+          li = error.full_message
+
+  div
+    = form.label :sender, style: "display: block"
+    = form.text_field :sender
+
+  div
+    = form.label :receiver, style: "display: block"
+    = form.text_field :receiver
+
+  div
+    = form.submit
