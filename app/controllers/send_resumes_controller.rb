@@ -25,11 +25,10 @@ class SendResumesController < ApplicationController
 
     respond_to do |format|
       if @send_resume.save
+        ResumeMailer.with(receiver: @receiver).sendresume.deliver_later
 
         format.html { redirect_to send_resume_url(@send_resume), notice: "Send resume was successfully created." }
         format.json { render :show, status: :created, location: @send_resume }
-
-        ResumeMailer.with(receiver: @receiver).sendresume.deliver_later
       else
         format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @send_resume.errors, status: :unprocessable_entity }
@@ -68,6 +67,6 @@ class SendResumesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def send_resume_params
-      params.require(:send_resume).permit(:sender, :receiver)
+      params.require(:send_resume).permit(:receiver)
     end
 end

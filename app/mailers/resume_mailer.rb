@@ -7,11 +7,11 @@ class ResumeMailer < ApplicationMailer
   #
   def sendresume
 
-    @sender = params[:sender]
     @receiver = params[:receiver]
 
     mail(
-      to: "omgout200@gmail.com"
+      to: @receiver,
+      object: "Backend Ruby on Rails разработчик"
      )
   end
 end

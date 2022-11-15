@@ -17,7 +17,7 @@ class SendResumesControllerTest < ActionDispatch::IntegrationTest
 
   test "should create send_resume" do
     assert_difference("SendResume.count") do
-      post send_resumes_url, params: { send_resume: { receiver: @send_resume.receiver, sender: @send_resume.sender } }
+      post send_resumes_url, params: { send_resume: { receiver: @send_resume.receiver } }
     end
 
     assert_redirected_to send_resume_url(SendResume.last)
@@ -34,7 +34,7 @@ class SendResumesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update send_resume" do
-    patch send_resume_url(@send_resume), params: { send_resume: { receiver: @send_resume.receiver, sender: @send_resume.sender } }
+    patch send_resume_url(@send_resume), params: { send_resume: { receiver: @send_resume.receiver } }
     assert_redirected_to send_resume_url(@send_resume)
   end
 
