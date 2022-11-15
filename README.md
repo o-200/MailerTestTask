@@ -1,24 +1,10 @@
-# README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# test_task_for_backend
 
-Things you may want to cover:
+Тестовое задание:
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Написать код, который бы прислал на email адрес web@proektmarketing.ru письмо с:
+- краткой информацией о вас (имя, фамилия, суммарный стаж в разработке);
+- ссылку на данный проект на github/bitbucket/gitlab 
+- ссылку на ваше резюме (подробная информация о вас, примеры работ, навыки) онлайн(например на heroku).
+Данные в шаблонах заменить на актуальные для вас.
